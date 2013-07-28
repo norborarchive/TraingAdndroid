@@ -39,6 +39,9 @@ public class MainActivity extends Activity {
 	        case R.id.action_settings:
 	        	startActivity(new Intent(this, SettingsActivity.class));
 	            return true;
+	        case R.id.action_showsetting:
+	        	startActivity(new Intent(this, ShowPreferenceActivity.class));
+	            return true;
 	        case R.id.action_about:
 	        	Toast.makeText(getApplicationContext(), "About Clicked !", Toast.LENGTH_SHORT).show();
 	            return true;

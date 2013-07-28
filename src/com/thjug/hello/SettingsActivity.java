@@ -1,19 +1,23 @@
 package com.thjug.hello;
 
+import android.annotation.TargetApi;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 
 public class SettingsActivity extends PreferenceActivity {
+	
+	/** 
+	 * Deprecated
+	 * 
+	    @Override
+	    @SuppressWarnings("deprecation")
+	    public void onCreate(final Bundle savedInstanceState) {        
+	        super.onCreate(savedInstanceState);        
+	        addPreferencesFromResource(R.xml.preference);
+	    }
+    */
 
-    @Override
-    public void onCreate(final Bundle savedInstanceState) {        
-        super.onCreate(savedInstanceState);        
-        //addPreferencesFromResource(R.xml.preference);
-    }
-
-}
-
-/**
     @Override
     public void onCreate(final Bundle savedInstanceState) {        
         super.onCreate(savedInstanceState);        
@@ -47,4 +51,4 @@ public class SettingsActivity extends PreferenceActivity {
             addPreferencesFromResource(R.xml.preference);
         }
     }
- */
+}

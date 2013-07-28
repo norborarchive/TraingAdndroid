@@ -18,6 +18,7 @@
             android:key="updates_interval"
             android:summary="Define how often updates will be performed"
             android:title="Updates interval" />
+
     </PreferenceCategory>
     
     <PreferenceCategory
@@ -30,6 +31,6 @@
             android:key="welcome_message"
             android:summary="Define the Welcome message to be shown"
             android:title="Welcome Message" />
-    </PreferenceCategory>
-
+</PreferenceCategory>
+    
 </PreferenceScreen>

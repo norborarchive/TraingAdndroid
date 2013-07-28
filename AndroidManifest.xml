@@ -22,9 +22,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.thjug.hello.SettingsActivity"
             android:label="@string/app_name" />
+        
+        <activity
+            android:name="com.thjug.hello.ShowPreferenceActivity"
+            android:label="@string/app_name" />
+        
+        <receiver android:name="com.thjug.hello.PetWidget" android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"></action>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="net.nuboat.petboat.PetWidget.BTN_READFULLSTORY"></action>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/petinfo"/>
+        </receiver>
 
     </application>
 
