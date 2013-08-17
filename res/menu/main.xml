@@ -1,6 +1,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <item
+        android:id="@+id/action_hellolist"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_hellolist"/>
+     <item
+        android:id="@+id/action_callrest"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_callrest"/>
+    <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="never"
@@ -20,6 +30,12 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/action_about"/>
+     <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/action_exit"/>
+     
      
      
 </menu>

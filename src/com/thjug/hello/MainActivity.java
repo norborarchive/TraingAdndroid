@@ -1,5 +1,8 @@
 package com.thjug.hello;
 
+import com.thjug.hello.client.RestClient;
+
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -12,6 +15,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +30,7 @@ public class MainActivity extends Activity {
 	
 	private static final int FM_NOTIFICATION_ID = 1;
 	private static final String IS_OPEN_ACCEPTDIALOG = "IS_OPEN_ACCEPTDIALOG";
-
+	
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,9 +39,7 @@ public class MainActivity extends Activity {
 		findViewById(R.id.btnHello).setOnClickListener(btnHelloClick);
 		findViewById(R.id.btnFill).setOnClickListener(btnFillClick);
 		
-        final SharedPreferences preferences;
-        preferences = getSharedPreferences("1", MODE_PRIVATE);
-        
+		final SharedPreferences preferences = getSharedPreferences("1", MODE_PRIVATE);
         if (preferences.getBoolean(IS_OPEN_ACCEPTDIALOG, true)) {
         	dialogMessage("Welcome", "You wanna use this app.");
         }
@@ -72,6 +74,14 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(final MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
+	        case R.id.action_hellolist:
+	        	startActivity(new Intent(this, HelloListActivity.class));
+	        	//finish();
+	            return true;
+	        case R.id.action_callrest:
+	        	new RetreiveElevationTask().execute(
+	        			"http://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&sensor=true");
+	            return true;
 	        case R.id.action_settings:
 	        	startActivity(new Intent(this, SettingsActivity.class));
 	            return true;
@@ -83,6 +93,9 @@ public class MainActivity extends Activity {
 	            return true;
 	        case R.id.action_about:
 	        	Toast.makeText(getApplicationContext(), "About Clicked !", Toast.LENGTH_SHORT).show();
+	            return true;
+	        case R.id.action_exit:
+	        	System.exit(0);
 	            return true;
             default:
             	return super.onOptionsItemSelected(item);
@@ -151,9 +164,33 @@ public class MainActivity extends Activity {
 	final OnKeyListener txtKey = new OnKeyListener() {
 		@Override
 		public boolean onKey(View v, int keyCode, KeyEvent event) {
-			//Toast.makeText(getApplicationContext(), ""+keyCode, Toast.LENGTH_SHORT).show();
 			return true;
 		}
 	};
+	
+	class RetreiveElevationTask extends AsyncTask<String, Void, String> {
+		
+	    private static final String TAG = "RetreiveElevationTask";
+	    
+	    protected String doInBackground(final String... urls) {
+	    	Log.d(TAG, "doInBackground");
+	        try {
+	        	final RestClient client = new RestClient("Hello v1.0");
+	        	return client.httpGet(urls[0]); 
+	        } catch (Exception e) {
+	            Log.e(TAG, e.getMessage(), e);
+	            return null;
+	        }
+	    }
+	    
+	    protected void onProgressUpdate(final Void v) {
+	    	Log.d(TAG, "onProgressUpdate");
+	    }
+
+	    protected void onPostExecute(final String feed) {
+	    	Log.d(TAG, "onPostExecute");
+	    	dialogMessage("Ubon Ratchathani", feed);
+	    }
+	}
 
 }
