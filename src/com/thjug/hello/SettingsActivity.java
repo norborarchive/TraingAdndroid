@@ -6,23 +6,10 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
 public class SettingsActivity extends PreferenceActivity {
-	
-	/** 
-	 * Deprecated
-	 * 
-	    @Override
-	    @SuppressWarnings("deprecation")
-	    public void onCreate(final Bundle savedInstanceState) {        
-	        super.onCreate(savedInstanceState);        
-	        addPreferencesFromResource(R.xml.preference);
-	    }
-    */
 
     @Override
     public void onCreate(final Bundle savedInstanceState) {        
         super.onCreate(savedInstanceState);        
-        //addPreferencesFromResource(R.xml.preference);
-
         try {
             getClass().getMethod("getFragmentManager");
             AddResourceApi11AndGreater();
@@ -42,11 +29,9 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     @TargetApi(11)
-    public static class PF extends PreferenceFragment
-    {       
+    public static class PF extends PreferenceFragment {       
         @Override
-        public void onCreate(final Bundle savedInstanceState)
-        {
+        public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preference);
         }

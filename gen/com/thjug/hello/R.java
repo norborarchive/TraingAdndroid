@@ -33,7 +33,8 @@ public final class R {
         public static final int petdo=0x7f020005;
     }
     public static final class id {
-        public static final int action_about=0x7f0a000e;
+        public static final int action_about=0x7f0a000f;
+        public static final int action_alert=0x7f0a000e;
         public static final int action_settings=0x7f0a000c;
         public static final int action_showsetting=0x7f0a000d;
         public static final int btnFill=0x7f0a0003;
@@ -58,14 +59,15 @@ public final class R {
         public static final int main=0x7f090000;
     }
     public static final class string {
-        public static final int action_about=0x7f070003;
+        public static final int action_about=0x7f070004;
+        public static final int action_alert=0x7f070003;
         public static final int action_settings=0x7f070001;
         public static final int action_showsetting=0x7f070002;
         public static final int app_name=0x7f070000;
-        public static final int hello_droid=0x7f070005;
-        public static final int hello_norbor=0x7f070006;
-        public static final int hello_petdo=0x7f070007;
-        public static final int hello_world=0x7f070004;
+        public static final int hello_droid=0x7f070006;
+        public static final int hello_norbor=0x7f070007;
+        public static final int hello_petdo=0x7f070008;
+        public static final int hello_world=0x7f070005;
     }
     public static final class style {
         /** 
