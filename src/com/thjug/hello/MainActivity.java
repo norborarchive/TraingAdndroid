@@ -1,5 +1,8 @@
 package com.thjug.hello;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import com.thjug.hello.client.RestClient;
 
 import android.os.AsyncTask;
@@ -77,13 +80,16 @@ public class MainActivity extends Activity {
 	    	case R.id.action_video:
 	        	startActivity(new Intent(this, VideoActivity.class));
 	            return true;
+	    	case R.id.action_bitmap:
+	        	startActivity(new Intent(this, BitmapActivity.class));
+	            return true;
 	        case R.id.action_hellolist:
 	        	startActivity(new Intent(this, HelloListActivity.class));
 	        	finish();
 	            return true;
 	        case R.id.action_callrest:
 	        	new RetreiveElevationTask().execute(
-	        			"http://maps.googleapis.com/maps/api/elevation/json?locations=39.7391536,-104.9847034&sensor=true");
+	        			"http://maps.googleapis.com/maps/api/elevation/json?locations=15.119359,104.909965&sensor=true");
 	            return true;
 	        case R.id.action_settings:
 	        	startActivity(new Intent(this, SettingsActivity.class));
@@ -171,15 +177,15 @@ public class MainActivity extends Activity {
 		}
 	};
 	
-	class RetreiveElevationTask extends AsyncTask<String, Void, String> {
+	class RetreiveElevationTask extends AsyncTask<String, Void, JSONObject> {
 		
 	    private static final String TAG = "RetreiveElevationTask";
 	    
-	    protected String doInBackground(final String... urls) {
+	    protected JSONObject doInBackground(final String... urls) {
 	    	Log.d(TAG, "doInBackground");
 	        try {
 	        	final RestClient client = new RestClient("Hello v1.0");
-	        	return client.httpGet(urls[0]); 
+	        	return client.getJsonbyHttpGet(urls[0]); 
 	        } catch (Exception e) {
 	            Log.e(TAG, e.getMessage(), e);
 	            return null;
@@ -190,10 +196,19 @@ public class MainActivity extends Activity {
 	    	Log.d(TAG, "onProgressUpdate");
 	    }
 
-	    protected void onPostExecute(final String feed) {
-	    	Log.d(TAG, "onPostExecute");
-	    	dialogMessage("Ubon Ratchathani", feed);
+	    protected void onPostExecute(final JSONObject feed) {
+	    	Log.d(TAG, "onPostExecute"); 
+	    	try { 
+	    		final JSONArray results = feed.getJSONArray("results");
+	    		final JSONObject result = results.getJSONObject(0);
+	    		final String elevation = result.getString("elevation");
+	    		
+	    		Toast.makeText(getApplicationContext(), "Elevation: " + elevation + " m.", Toast.LENGTH_LONG).show();
+	    	} catch(final Exception e) {
+	    		Log.e(TAG, e.getMessage(), e);
+	    	}
 	    }
+
 	}
 
 }

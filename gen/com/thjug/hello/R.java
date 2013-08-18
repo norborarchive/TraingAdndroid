@@ -35,61 +35,74 @@ public final class R {
         public static final int telephone=0x7f020007;
     }
     public static final class id {
-        public static final int action_about=0x7f0a0012;
-        public static final int action_alert=0x7f0a0019;
-        public static final int action_callrest=0x7f0a0016;
-        public static final int action_exit=0x7f0a0013;
-        public static final int action_hellolist=0x7f0a0015;
-        public static final int action_settings=0x7f0a0017;
-        public static final int action_showsetting=0x7f0a0018;
-        public static final int action_video=0x7f0a0014;
-        public static final int btnFill=0x7f0a0003;
-        public static final int btnHello=0x7f0a0002;
-        public static final int btnRead=0x7f0a000e;
-        public static final int episodename=0x7f0a0010;
-        public static final int figure=0x7f0a0011;
-        public static final int hellolist=0x7f0a0008;
-        public static final int hellowlist_icon=0x7f0a0009;
-        public static final int hellowlist_name=0x7f0a000a;
-        public static final int layoutbody=0x7f0a000f;
-        public static final int layoutfooter=0x7f0a000d;
-        public static final int layoutheader=0x7f0a000c;
-        public static final int lblHello=0x7f0a0000;
-        public static final int lblPreference=0x7f0a0004;
-        public static final int petwidget=0x7f0a000b;
-        public static final int txtHello=0x7f0a0001;
-        public static final int videoview=0x7f0a0006;
-        public static final int webview=0x7f0a0007;
-        public static final int webviewactivity=0x7f0a0005;
+        public static final int action_about=0x7f0a0017;
+        public static final int action_alert=0x7f0a001f;
+        public static final int action_bitmap=0x7f0a001a;
+        public static final int action_callrest=0x7f0a001c;
+        public static final int action_exit=0x7f0a0018;
+        public static final int action_hellolist=0x7f0a001b;
+        public static final int action_settings=0x7f0a001d;
+        public static final int action_showsetting=0x7f0a001e;
+        public static final int action_video=0x7f0a0019;
+        public static final int btnFill=0x7f0a0008;
+        public static final int btnHello=0x7f0a0007;
+        public static final int btnRead=0x7f0a0013;
+        public static final int button1=0x7f0a0001;
+        public static final int button2=0x7f0a0002;
+        public static final int button3=0x7f0a0003;
+        public static final int button4=0x7f0a0004;
+        public static final int episodename=0x7f0a0015;
+        public static final int figure=0x7f0a0016;
+        public static final int hellolist=0x7f0a000d;
+        public static final int hellowlist_icon=0x7f0a000e;
+        public static final int hellowlist_name=0x7f0a000f;
+        public static final int layoutbody=0x7f0a0014;
+        public static final int layoutfooter=0x7f0a0012;
+        public static final int layoutheader=0x7f0a0011;
+        public static final int lblHello=0x7f0a0005;
+        public static final int lblPreference=0x7f0a0009;
+        public static final int petdoimage=0x7f0a0000;
+        public static final int petwidget=0x7f0a0010;
+        public static final int txtHello=0x7f0a0006;
+        public static final int videoview=0x7f0a000b;
+        public static final int webview=0x7f0a000c;
+        public static final int webviewactivity=0x7f0a000a;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
-        public static final int activity_showpreference=0x7f030001;
-        public static final int activity_video=0x7f030002;
-        public static final int activity_web=0x7f030003;
-        public static final int activitylist_hellolist=0x7f030004;
-        public static final int activitylistrow_hellolist=0x7f030005;
-        public static final int widget_petdo=0x7f030006;
+        public static final int activity_bitmap=0x7f030000;
+        public static final int activity_main=0x7f030001;
+        public static final int activity_showpreference=0x7f030002;
+        public static final int activity_video=0x7f030003;
+        public static final int activity_web=0x7f030004;
+        public static final int activitylist_hellolist=0x7f030005;
+        public static final int activitylistrow_hellolist=0x7f030006;
+        public static final int widget_petdo=0x7f030007;
     }
     public static final class menu {
         public static final int about=0x7f090000;
         public static final int main=0x7f090001;
     }
     public static final class string {
-        public static final int action_about=0x7f070007;
-        public static final int action_alert=0x7f070006;
-        public static final int action_callrest=0x7f070003;
-        public static final int action_exit=0x7f070008;
-        public static final int action_hellolist=0x7f070002;
-        public static final int action_settings=0x7f070004;
-        public static final int action_showsetting=0x7f070005;
+        public static final int action_about=0x7f070008;
+        public static final int action_alert=0x7f070007;
+        public static final int action_bitmap=0x7f070002;
+        public static final int action_callrest=0x7f070004;
+        public static final int action_exit=0x7f070009;
+        public static final int action_hellolist=0x7f070003;
+        public static final int action_settings=0x7f070005;
+        public static final int action_showsetting=0x7f070006;
         public static final int action_video=0x7f070001;
         public static final int app_name=0x7f070000;
-        public static final int hello_droid=0x7f07000b;
-        public static final int hello_norbor=0x7f07000c;
-        public static final int hello_petdo=0x7f07000d;
-        public static final int hello_world=0x7f07000a;
-        public static final int hellolist_header_label=0x7f070009;
+        public static final int button1=0x7f070010;
+        public static final int button2=0x7f070011;
+        public static final int button3=0x7f070012;
+        public static final int button4=0x7f070013;
+        public static final int hello_droid=0x7f07000c;
+        public static final int hello_norbor=0x7f07000d;
+        public static final int hello_petdo=0x7f07000e;
+        public static final int hello_world=0x7f07000b;
+        public static final int hellolist_header_label=0x7f07000a;
+        public static final int petdo=0x7f07000f;
     }
     public static final class style {
         /** 

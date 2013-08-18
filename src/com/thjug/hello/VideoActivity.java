@@ -12,7 +12,7 @@ public class VideoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_video);
 		
-		String path = "http://192.168.176.129:8383/Video/kitty.mp4";
+		String path = "http://192.168.176.129:8383/Video/kitty.m4v";
 
 	    final Uri uri = Uri.parse(path);
 

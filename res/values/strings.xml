@@ -4,6 +4,7 @@
     <string name="app_name">Hello</string>
     
     <string name="action_video">Open Video</string>
+    <string name="action_bitmap">Open Bitmap</string>
     <string name="action_hellolist">Hello List</string>
     <string name="action_callrest">Call Rest</string>
     <string name="action_settings">Setting</string>
@@ -19,4 +20,10 @@
     <string name="hello_norbor">Hello Norbor</string>
     <string name="hello_petdo">Hello Petdo</string>
     
+    <string name="petdo">Petdo</string>
+    <string name="button1"> 1 </string>
+    <string name="button2"> 2 </string>
+    <string name="button3"> 3 </string>
+    <string name="button4"> 4 </string>
+   
 </resources>
