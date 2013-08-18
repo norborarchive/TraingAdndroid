@@ -203,6 +203,11 @@ public class MainActivity extends Activity {
 	    		final JSONObject result = results.getJSONObject(0);
 	    		final String elevation = result.getString("elevation");
 	    		
+	    		final JSONObject location = result.getJSONObject("location");
+	    		final String lat = location.getString("lat");
+	    		final String lng = location.getString("lng");
+	    		
+	    		
 	    		Toast.makeText(getApplicationContext(), "Elevation: " + elevation + " m.", Toast.LENGTH_LONG).show();
 	    	} catch(final Exception e) {
 	    		Log.e(TAG, e.getMessage(), e);

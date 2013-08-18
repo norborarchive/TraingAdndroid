@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -59,7 +60,7 @@ public class BitmapActivity extends Activity {
 	final OnClickListener btnClick = new OnClickListener() {
 		@Override
 		public void onClick(final View v) {
-			final TextView text = (TextView) v;
+			final Button text = (Button) v;
 			
 			String url;
 			switch (Integer.parseInt(text.getText().toString().trim())) {
