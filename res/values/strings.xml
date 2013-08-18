@@ -3,7 +3,7 @@
 
     <string name="app_name">Hello</string>
     
-    
+    <string name="action_video">Open Video</string>
     <string name="action_hellolist">Hello List</string>
     <string name="action_callrest">Call Rest</string>
     <string name="action_settings">Setting</string>

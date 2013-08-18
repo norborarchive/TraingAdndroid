@@ -74,9 +74,12 @@ public class MainActivity extends Activity {
 	public boolean onOptionsItemSelected(final MenuItem item) {
 	    // Handle item selection
 	    switch (item.getItemId()) {
+	    	case R.id.action_video:
+	        	startActivity(new Intent(this, VideoActivity.class));
+	            return true;
 	        case R.id.action_hellolist:
 	        	startActivity(new Intent(this, HelloListActivity.class));
-	        	//finish();
+	        	finish();
 	            return true;
 	        case R.id.action_callrest:
 	        	new RetreiveElevationTask().execute(
