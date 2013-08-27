@@ -9,7 +9,8 @@ import java.net.URL;
 
 import com.thjug.hello.util.IOUtil;
 
-public class ImageloadClient {
+public final class ImageloadClient {
+	
     private static final String TAG = "ImageloadClient";
 
     public static Bitmap getBitmap(final String urlstring) {
@@ -22,7 +23,7 @@ public class ImageloadClient {
             connection.connect();
             input =  connection.getInputStream();
             final Bitmap bit = BitmapFactory.decodeStream(input);
-            
+
             return bit;
         } catch(final Exception e) {
             Log.e(TAG, Log.getStackTraceString(e));

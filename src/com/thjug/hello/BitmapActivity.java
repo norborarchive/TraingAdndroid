@@ -12,18 +12,17 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.thjug.hello.client.ImageloadClient;
 
-public class BitmapActivity extends Activity {
-	
+public final class BitmapActivity extends Activity {
+
 	@Override
 	protected void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bitmap);
-		
+
 		findViewById(R.id.button1).setOnClickListener(btnClick);
 		findViewById(R.id.button2).setOnClickListener(btnClick);
 		findViewById(R.id.button3).setOnClickListener(btnClick);
@@ -36,7 +35,7 @@ public class BitmapActivity extends Activity {
 		getMenuInflater().inflate(R.menu.about, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 	    // Handle item selection
@@ -51,17 +50,17 @@ public class BitmapActivity extends Activity {
             	return super.onOptionsItemSelected(item);
 	    }
 	}
-	
+
 	public void updateImage(final Bitmap bitmap) {
 		final ImageView image = (ImageView) findViewById(R.id.petdoimage);
 		image.setImageBitmap(bitmap);
 	}
-	
+
 	final OnClickListener btnClick = new OnClickListener() {
 		@Override
 		public void onClick(final View v) {
 			final Button text = (Button) v;
-			
+
 			String url;
 			switch (Integer.parseInt(text.getText().toString().trim())) {
 				case 1:
@@ -78,29 +77,29 @@ public class BitmapActivity extends Activity {
 					break;
 				default:
 					url = "http://iampetdo.com/sites/default/files/imagecache/comic_node/ep78_1.png";
-							
+
 			}
-			
+
 			new RetreiveElevationTask().execute(url);
 		}
 	};
-	
+
 	final OnClickListener btnFillClick = new OnClickListener() {
 		@Override
 		public void onClick(final View v) {
 			final EditText txt = (EditText) findViewById(R.id.txtHello);
-			txt.setText(R.string.hello_norbor);			
+			txt.setText(R.string.hello_norbor);
 		}
-	}; 
-	
+	};
+
 	class RetreiveElevationTask extends AsyncTask<String, Void, Bitmap> {
-		
+
 	    private static final String TAG = "RetreiveElevationTask";
-	    
+
 	    protected Bitmap doInBackground(final String... urls) {
 	    	Log.d(TAG, "doInBackground");
 	        try {
-	        	return ImageloadClient.getBitmap(urls[0]); 
+	        	return ImageloadClient.getBitmap(urls[0]);
 	        } catch (final Exception e) {
 	            Log.e(TAG, e.getMessage(), e);
 	            return null;

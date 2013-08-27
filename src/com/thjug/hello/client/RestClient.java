@@ -17,7 +17,7 @@ import com.thjug.hello.util.IOUtil;
 
 import android.util.Log;
 
-public class RestClient {
+public final class RestClient {
 
     private static final String TAG = "RestClient";
 
@@ -31,7 +31,7 @@ public class RestClient {
         this.sUserAgent = sUserAgent;
         client = new DefaultHttpClient();
     }
-    
+
     public InputStream getInputStream(final String url) throws IOException {
     	final HttpGet get = new HttpGet(url);
         get.setHeader("User-Agent", sUserAgent);
@@ -40,28 +40,28 @@ public class RestClient {
 
         final StatusLine status = response.getStatusLine();
         if (status.getStatusCode() != HTTP_STATUS_OK) {
-            throw new IOException("Invalid response from server: " + status.toString()); 
+            throw new IOException("Invalid response from server: " + status.toString());
         }
 
         final HttpEntity entity = response.getEntity();
-        
+
         return entity.getContent();
     }
 
     public String httpGet(final String url) throws IOException {
         InputStream inputStream = null;
         ByteArrayOutputStream content = null;
-        
+
         try {
         	inputStream = getInputStream(url);
         	content = new ByteArrayOutputStream();
-        	
+
 	        int readBytes = 0;
 	        byte[] sBuffer = new byte[512];
 	        while ((readBytes = inputStream.read(sBuffer)) != -1) {
-	            content.write(sBuffer, 0, readBytes); 
+	            content.write(sBuffer, 0, readBytes);
 	        }
-	        
+
 	        final String output = new String(content.toByteArray());
 	        Log.i(TAG, output);
 	        return output;
@@ -72,7 +72,7 @@ public class RestClient {
         	IOUtil.safeclose(inputStream);
         }
     }
-    
+
     public JSONObject getJsonbyHttpGet(final String url) throws Exception {
         return new JSONObject(httpGet(url));
     }

@@ -7,12 +7,12 @@ import android.util.Log;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-public class WebActivity extends Activity {
-	
+public final class WebActivity extends Activity {
+
 	private static final String TAG = "WebActivity";
-	
+
     private WebView mWebView;
-    
+
 	@Override
 	@SuppressLint("SetJavaScriptEnabled")
     public void onCreate(final Bundle icicle) {
@@ -29,7 +29,7 @@ public class WebActivity extends Activity {
             webSettings.setSupportZoom(false);
             webSettings.setJavaScriptEnabled(true);
             webSettings.setDefaultZoom(WebSettings.ZoomDensity.MEDIUM);
-            
+
             mWebView.loadUrl("https://m.facebook.com/groups/thjug"); }
         catch (final Exception e) {
             Log.e(TAG, e.getMessage(), e);

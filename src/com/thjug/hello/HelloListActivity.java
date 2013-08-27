@@ -14,8 +14,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class HelloListActivity extends ListActivity {
-	
+public final class HelloListActivity extends ListActivity {
+
 	private static final String TAG = "HelloListActivity";
 
 	private static String [] no = new String[] {
@@ -24,7 +24,7 @@ public class HelloListActivity extends ListActivity {
 			,"0894446110"
 			,"0894446110"
 			,"0894446110" };
-	
+
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +32,14 @@ public class HelloListActivity extends ListActivity {
 
         setListAdapter(new HelloAdapter());
     }
-    
+
 	@Override
 	public boolean onCreateOptionsMenu(final Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.about, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(final MenuItem item) {
 	    // Handle item selection
@@ -54,13 +54,13 @@ public class HelloListActivity extends ListActivity {
             	return super.onOptionsItemSelected(item);
 	    }
 	}
-    
+
     @Override
     public void onListItemClick(final ListView parent, final View v, final int position, final long id) {
         try {
         	final TextView t = (TextView) v.findViewById(R.id.hellowlist_name);
         	Toast.makeText(getApplicationContext(), "Hello " + t.getText(), Toast.LENGTH_SHORT).show();
-        	
+
         	// Call
         	final Intent callIntent = new Intent(Intent.ACTION_CALL);
             callIntent.setData(Uri.parse("tel:" + no[position]));
@@ -69,11 +69,11 @@ public class HelloListActivity extends ListActivity {
         	Log.e(TAG, e.getMessage(), e);
         }
     }
-    
+
     class HelloAdapter extends ArrayAdapter<String> {
 
     	HelloAdapter() {
-            super(HelloListActivity.this, R.layout.activitylistrow_hellolist, R.id.hellowlist_name
+            super(HelloListActivity.this, R.layout.activitylist_hellolistrow, R.id.hellowlist_name
             		, new String[] {
             			 "Petdo."
             			,"Norbor."

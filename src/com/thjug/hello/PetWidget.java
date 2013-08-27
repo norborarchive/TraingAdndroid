@@ -9,22 +9,22 @@ import android.content.Intent;
 import android.net.Uri;
 import android.widget.RemoteViews;
 
-public class PetWidget extends AppWidgetProvider {
+public final class PetWidget extends AppWidgetProvider {
 
 	public static final String BTN_READFULLSTORY = "READFULLSTORY";
 
 	@Override
 	public void onEnabled(final Context context) {
 		super.onEnabled(context);
-		
+
 		final String url = "http://www.iampetdo.com";
 		final Intent intent = new Intent(Intent.ACTION_VIEW);
 		intent.setData(Uri.parse(url));
 		final PendingIntent pintent = PendingIntent.getActivity(context, 0, intent, 0);
-		
+
 		final RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_petdo);
 		views.setOnClickPendingIntent(R.id.btnRead, pintent);
-		
+
 		final ComponentName thisWidget = new ComponentName(context, PetWidget.class);
 		final AppWidgetManager manager = AppWidgetManager.getInstance(context);
         manager.updateAppWidget(thisWidget, views);

@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 
-public class SettingsActivity extends PreferenceActivity {
+public final class SettingsActivity extends PreferenceActivity {
 
     @Override
-    public void onCreate(final Bundle savedInstanceState) {        
-        super.onCreate(savedInstanceState);        
+    public void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         try {
             getClass().getMethod("getFragmentManager");
             AddResourceApi11AndGreater();
@@ -17,7 +17,7 @@ public class SettingsActivity extends PreferenceActivity {
             AddResourceApiLessThan11();
         }
     }
- 
+
     @SuppressWarnings("deprecation")
     protected void AddResourceApiLessThan11() {
         addPreferencesFromResource(R.xml.preference);
@@ -29,7 +29,7 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     @TargetApi(11)
-    public static class PF extends PreferenceFragment {       
+    public static class PF extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
